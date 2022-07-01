@@ -1,7 +1,9 @@
 COPY /Y %~1 .\
 REM Add a set and copy for each player ID
-set player1Saves=Saved\SaveGames\76561197966141175
+set player1Saves=Saved\SaveGames\76561198999836294
+set player2Saves=Saved\SaveGames\76561199033946803
 COPY /Y %~nx1 %player1Saves%
+COPY /Y %~nx1 %player2Saves%
 DEL /q /f .\*.sav
 
 @setlocal enableextensions enabledelayedexpansion
@@ -12,6 +14,7 @@ set directory=%~dp1
 set allsaves=%directory%%savefiles%
 REM ADD AN IF..COPY in case you use the Experimental Branch
 if not x%filename:_BAK=%==x%filename% COPY /Y %allsaves% %player1Saves%
+if not x%filename:_BAK=%==x%filename% COPY /Y %allsaves% %player2Saves%
 endlocal
 
 SET message=MP-Autosave-%~nx1
