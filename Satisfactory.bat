@@ -1,6 +1,6 @@
 @echo off
 setlocal EnableDelayedExpansion
-set gamedir=""
+set gamedir="D:\SteamLibrary\steamapps\common\Satisfactory"
 if exist gamelocation.txt (
 	set /p gamedir=<gamelocation.txt
 	echo Game Directory Found: !gamedir!
